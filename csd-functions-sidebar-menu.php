@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CSD Functions - Sidebar Menu
-Version: 1.0
+Version: 1.1
 Description: Sidebar menu for CSD Schools and District Theme
 Author: Josh Armentano
 Author URI: http://abidewebdesign.com
@@ -34,6 +34,7 @@ $myUpdateChecker->setBranch('master');
  *
  * @since 2010-05-28
  * @alter 2010-10-09
+ * @alter 2019-12-05 (Wordpress 5.3 change)
  */
 
 function get_topmost_parent($post_id){
@@ -61,8 +62,9 @@ class Razorback_Walker_Page_Selective_Children extends Walker_Page {
      *
      * @since 2010-05-28
      * @alter 2010-10-09
+     * @alter 2019-12-05
      */
-    function walk( $elements, $max_depth ) {
+    function walk( $elements, $max_depth, ...$args ) {
         global $post;
         $args = array_slice( func_get_args(), 2 );
         $output = '';
